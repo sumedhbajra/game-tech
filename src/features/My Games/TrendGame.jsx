@@ -3,34 +3,46 @@ import styled, { css } from "styled-components";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust the height as needed */
+  height: auto;
+  margin: 2cap 0;
+  position: relative;
 `;
 
 const BackgroundImage = styled.img`
-  width: 60%; /* Adjust the width as needed */
+  /* position: absolute; */
+  width: auto;
   object-fit: cover;
+  border-radius: 50px;
+  height: 50vh;
 `;
 
 const GunImage = styled.img`
-  width: 20%; /* Adjust the width as needed */
+  /* position: absolute; */
+  width: auto;
+  height: 25vh;
   object-fit: contain;
-  ${(prop) => {
-    console.log("hello");
-    prop.rotate && css``;
-  }}
+  display: hidden;
 `;
 
 function TrendGame() {
-  console.log("hello worl");
   return (
     <Container>
-      <GunImage src="public/View Games/pubg-guns.png" alt="PUBG Gun" />
+      <GunImage
+        rotate={18}
+        src="public/View Games/pubg-guns.png"
+        alt="PUBG Gun"
+        className={`rotate-45 scale-x-[-1]`}
+      />
       <BackgroundImage
         src="public/View Games/pubg-bg.jpg"
         alt="PUBG Background"
+        className="z-10"
       />
-      <GunImage src="public/View Games/pubg-guns.png" alt="PUBG Gun" />
+      <GunImage
+        src="public/View Games/pubg-guns.png"
+        alt="PUBG Gun"
+        className="-rotate-45"
+      />
     </Container>
   );
 }
